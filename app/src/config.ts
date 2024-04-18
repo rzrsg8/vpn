@@ -1,8 +1,6 @@
 import { defineConfig } from '@tok/generation';
 
 export default defineConfig({
-  // If you want to add language/currency localization – see ./examples/meditation as reference
-
   pages: [
     {
       slides: [
@@ -10,78 +8,45 @@ export default defineConfig({
         {
           media: {
             type: 'sticker',
-            src: import('./assets/stickers/duck_hello.tgs'),
-            size: 250,
+            src: import('./assets/stickers/yoda_thinking.tgs'),
+            size: 200,
           },
           shape: 'square',
           pagination: 'count',
-          title: 'MyVPN - the best VPN for you',
-          description:"Get access to all the content",
+          title: 'ChatGPT (GPT-4) now in Telegram!',
+          description: "Most advanced AI powered by <a href='https://openai.com' target='_blank'>OpenAI</a>",
           button: 'Next',
         },
 
-         // form
-        {
-          extends: 'form', // note, it's important to extend from 'form' here
-          media: {
-            type: 'sticker',
-            src: import('./assets/stickers/duck_spy.tgs'),
-            size: 150,
-          },
-          shape: 'square',
-          pagination: 'count',
-          title: 'Why use a VPN?',
-          description: 'User fills in the form – the bot receives the data',
-          form: [
-            {
-              id: 'privacy',
-              placeholder: 'Protect your privacy',
-              type: 'checkbox',
-            },
-            {
-              id: 'security',
-              placeholder: 'Acess blocked content',
-              type: 'checkbox',
-            },
-            {
-              id: 'other',
-              placeholder: 'Other',
-              type: 'checkbox',
-            },
-          ],
-          button: 'Next',
-        },
-        // image
+        // video 1
         {
           media: {
-            type: 'image',
-            src: import('./assets/img/fenix-games.webp'),
+            type: 'video',
+            src: import('./assets/videos/chatgpt_1.mp4'),
+            poster: import('./assets/img/chatgpt_1_poster.webp'),
+            style: 'aspect-ratio: 780/936',
           },
           shape: 'rounded',
           pagination: 'count',
-          title: 'People trust us',
-          description: "It's just the beginning",
-          button: {
-            content: "Go to paywall",
-            to: '/paywall',
-          },
+          title: 'Ask any questions',
+          description: "Get instant smart answers",
+          button: 'Next',
         },
 
-    
-        // go to paywall slide
+        // video 2
         {
           media: {
-            type: 'sticker',
-            src: import('./assets/stickers/duck_knife.tgs'),
-            size: 250,
+            type: 'video',
+            src: import('./assets/videos/chatgpt_2.mp4'),
+            poster: import('./assets/img/chatgpt_2_poster.webp'),
+            style: 'aspect-ratio: 780/936',
           },
-          shape: 'square',
+          shape: 'rounded',
           pagination: 'count',
-          textAlign: 'center',
-          title: 'But onboarding slides are not enough...',
-          description: "Let's go to Paywall",
+          title: 'Send Voice Messages',
+          description: "90+ languages are supported",
           button: {
-            content: 'Go to Paywall',
+            content: 'Next',
             to: '/paywall',
           },
         },
@@ -94,35 +59,41 @@ export default defineConfig({
       path: '/paywall',
       media: {
         type: 'sticker',
-        src: import('./assets/stickers/duck_money.tgs'),
+        src: import('./assets/stickers/yoda_heart.tgs'),
         size: 150,
       },
       shape: 'square',
-      title: 'Unlocka all features',
+      title: 'Unlock PRO features',
       list: [
-        'Unlimited traffic',
-        'No logs',
-        'No ads',
+        '<b>100,000</b> tokens/day (50+ A4-pages for ChatGPT)',
+        'Access to <b>GPT-4</b>',
+        'Unlock PRO chat modes and voice messages',
       ],
       products: [
         {
+          id: '1_week_subscription',
+          title: '1 week subscription',
+          description: '2.49$/week',
+          discount: '',
+          price: 2.49,
+        },
+        {
           id: '1_month_subscription',
           title: '1 month subscription',
-          description: '1$/month',
-          discount: '',
-          price: 1,
+          description: '1.35$/week',
+          discount: '45% discount',
+          price: 5.99,
         },
         {
           id: '1_year_subscription',
           title: '1 year subscription',
-          description: '6$/month',
-          discount: 'Discount 50%',
-          price: 6,
+          description: '0.96$/week',
+          discount: '60% discount (best offer)',
+          price: 49.99,
         },
       ],
       mainButtonText: 'Buy for {price}',
-      popup: {
-        // popup for payment methods choice
+      popup: {  // popup for payment methods choice
         type: 'web',
       },
       links: [
